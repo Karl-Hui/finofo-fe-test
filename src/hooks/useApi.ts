@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 
 interface UseApiResponse<T> {
   data: T | null;
@@ -27,11 +27,15 @@ const useApi = <T>(
           signal,
         });
         setData(response.data);
-      } catch (err: unknown) {
+      } catch (err) {
         if (axios.isCancel(err)) {
           console.log('Request canceled:', err.message);
+        } else if (err instanceof AxiosError) {
+          setError(err.message);
+        } else if (err instanceof Error) {
+          setError(err.message);
         } else {
-          setError(err.message || 'An error occurred');
+          setError('An unknown error occurred');
         }
       } finally {
         setLoading(false);
@@ -40,11 +44,10 @@ const useApi = <T>(
 
     fetchData();
 
-    // Cleanup function to cancel the request if the component unmounts
     return () => {
       controller.abort();
     };
-  }, [url]);
+  }, [url, config]);
 
   return { data, loading, error };
 };
