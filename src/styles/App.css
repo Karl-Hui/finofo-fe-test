@@ -1,0 +1,221 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+
+.left-section,
+.right-section {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.left-section {
+  border-right: 1px solid #ccc;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+h1, h2, h3 {
+  color: #333;
+}
+
+
+.loading,
+.error {
+  font-size: 18px;
+  color: #333;
+  margin: 20px 0;
+}
+
+.error {
+  color: red;
+}
+
+
+.search-bar {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+
+.group-by-select {
+  width: 100px;
+}
+
+.group-by-select,
+.toggle-view-button {
+  margin-bottom: 15px;
+}
+
+.group-by-select select {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  appearance: none; 
+}
+
+
+.fruit-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.fruit-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons */
+button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.group-header button {
+  font-size: 14px;
+  padding: 6px 10px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.group-header button:hover {
+  background-color: #0056b3;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #333;
+}
+
+.group-header + .fruit-table {
+  margin-top: 10px; 
+}
+
+
+.fruit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.fruit-table th,
+.fruit-table td {
+  border: 1px solid #ddd;
+  padding: 10px; 
+  text-align: left;
+}
+
+.fruit-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.fruit-table tr {
+  vertical-align: middle; 
+}
+
+.pie-chart-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+.jar {
+  /* background-color: #f9f9f9; */
+  padding: 20px;
+  border-radius: 4px;
+  /* max-height: 80vh; */
+  /* overflow-y: auto; */
+}
+
+.jar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.jar-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.jar-item {
+  font-size: 14px;
+}
+
+
+.total-calories {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+.pie-chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px; 
+}
+
+.pie-chart {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+@media (max-width: 768px) {
+  .jar-list {
+    grid-template-columns: 1fr; 
+  }
+}
