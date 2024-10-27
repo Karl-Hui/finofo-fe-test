@@ -31,7 +31,7 @@ const PieChartComponent: React.FC<Props> = ({ fruits }) => {
           outerRadius={120}
           label={({ name }) => name} // Shorter label format
         >
-          {chartData.map((_entry, index) => (
+          {chartData.map((_, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>

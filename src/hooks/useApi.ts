@@ -29,7 +29,7 @@ const useApi = <T>(
         setData(response.data);
       } catch (err) {
         if (axios.isCancel(err)) {
-          console.log('Request canceled:', err.message);
+          console.log('Request canceled:', (err as Error).message);
         } else if (err instanceof AxiosError) {
           setError(err.message);
         } else if (err instanceof Error) {
@@ -47,7 +47,7 @@ const useApi = <T>(
     return () => {
       controller.abort();
     };
-  }, [url, config]);
+  }, [url, config]); // Include config in dependencies
 
   return { data, loading, error };
 };
