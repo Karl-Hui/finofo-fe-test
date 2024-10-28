@@ -21,6 +21,7 @@ const useApi = <T>(
 
     const fetchData = async () => {
       setLoading(true);
+      console.log('url', url);
       try {
         const response = await axios.get<T>(url, {
           ...config,
