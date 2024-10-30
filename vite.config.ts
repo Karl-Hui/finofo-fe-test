@@ -8,7 +8,8 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         '/api': {
-          target: env.VITE_API_BASE_URL,
+          target:
+            'https://wcz3qr33kmjvzotdqt65efniv40kokon.lambda-url.us-east-2.on.aws/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
